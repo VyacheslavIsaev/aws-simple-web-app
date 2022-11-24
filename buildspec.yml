@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  variables:
+    index_file_name: "index.html"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo "INSTALL PHASE installing something"
+  pre_build:
+    commands:
+      - echo "PRE-BUILD PHASE we are in the pre-build phase"
+  build:
+    commands:
+      - echo "we are in the build block"
+      - echo "we will run some tests"
+      - grep -Fq "Congratulations" index.html
+  post_build:
+    commands:
+      - echo "we are in the post build phase"
